@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+My Blog
+{% endblock  %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "Blog/post.css" %}"> 
+<link rel="stylesheet" href="{% static "Blog/index.css" %}"> 
+{% endblock  %}
+
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static "Blog/images/zaid.jpg" %}" alt="Zaid-The Author Of The Blog">
+            <h2>Zaid Blog</h2>
+        </header>
+        <h1>Unleash the power of words, where every blog is a canvas of ideas, a masterpiece of inspiration and insight.</h1>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+        <ul>
+            {% for post in posts %}
+            {% include "Blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>Identify a skill you want to develop, whether it's related to your current job, a hobby, or something entirely new. Look for online courses, workshops, or tutorials to get started.</p>
+        <p>
+            Prioritize your physical well-being. Consider incorporating regular exercise, healthy eating habits, and sufficient sleep into your routine.</p>
+    </section>
+{% endblock  %}
